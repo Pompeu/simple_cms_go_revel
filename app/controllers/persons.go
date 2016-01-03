@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/revel/revel"
-	"revel_cms/models"
+	"revel_cms/app/models"
 )
 
 func (c App) Login(email, password string) revel.Result {
@@ -15,9 +15,9 @@ func (c App) Login(email, password string) revel.Result {
 			c.Flash.Success("Bem Vindo ," + person.Name)
 			return c.Redirect(App.Index)
 		}
+		c.Flash.Error("Login Failed try again")
+		return c.Render()
 	}
-	c.Flash.Out["email"] = email
-	c.Flash.Error("Login Failed")
 	return c.Render()
 }
 

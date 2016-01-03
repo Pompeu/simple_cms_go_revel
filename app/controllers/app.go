@@ -3,7 +3,7 @@ package controllers
 import (
 	"github.com/revel/revel"
 	"regexp"
-	"revel_cms/models"
+	"revel_cms/app/models"
 )
 
 type App struct {

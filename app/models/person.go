@@ -1,8 +1,8 @@
 package models
 
 import (
-	"github.com/pompeu/db"
 	"gopkg.in/mgo.v2/bson"
+	"revel_cms/app/db"
 )
 
 type Person struct {

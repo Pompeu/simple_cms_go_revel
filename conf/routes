@@ -6,9 +6,12 @@ module:testrunner
 
 GET     /                                       App.Index
 
-GET     /Posts/:id                              App.Posts
 GET     /Posts/                                 App.FormPost
 POST    /Posts/                                 App.FormPost
+GET     /Posts/:id                              App.Posts
+GET     /post/remove/:id                        App.RemovePost
+GET     /post/edit/:id                          App.EditPost
+POST    /post/edit/                             App.EditPost
 
 GET     /login/                                 App.Login
 POST    /login/                                 App.Login

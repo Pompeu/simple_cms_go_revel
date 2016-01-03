@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"golang.org/x/crypto/bcrypt"
-	"revel_cms/models"
+	"revel_cms/app/models"
 )
 
 func (c App) connected() *models.Person {

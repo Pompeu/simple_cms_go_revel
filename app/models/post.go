@@ -2,8 +2,8 @@ package models
 
 import (
 	"errors"
-	"github.com/pompeu/db"
 	"gopkg.in/mgo.v2/bson"
+	"revel_cms/app/db"
 )
 
 type Post struct {
@@ -13,14 +13,28 @@ type Post struct {
 	Tags  []string      `json:"tags" bson:"tags"`
 }
 
-func (p *Post) Create() (Post, error) {
+func (p *Post) Create(title, body string, tags []string) (Post, error) {
 	p.Id = bson.NewObjectId()
+	p.Title = title
+	p.Body = body
+	p.Tags = tags
 	session := db.SimpleSession("posts")
 	err := session.DB("test").C("posts").Insert(p)
 	defer session.Close()
 	return *p, err
 }
 
+func (p *Post) Update(id, title, body string, tags []string) error {
+	oid := bson.ObjectIdHex(id)
+	p.Id = oid
+	p.Title = title
+	p.Body = body
+	p.Tags = tags
+	session := db.SimpleSession("posts")
+	err := session.DB("test").C("posts").Update(bson.M{"id": oid}, &p)
+	defer session.Close()
+	return err
+}
 func (p *Post) FindByName(title string) []Post {
 	var posts []Post
 	session := db.SimpleSession("posts")
