@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>{{.title}}</title>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8">
+    <link rel="stylesheet"
+          type="text/css"
+          href="/public/css/bootstrap.css">
+    <link rel="shortcut icon"
+          type="image/png" href="/public/img/favicon.png">
+    <script src="/public/js/jquery-1.9.1.min.js"
+            type="text/javascript" charset="utf-8">
+    </script>
+  </head>
+  <body>
+    <header class="hero-unit">
+      <div class="container">
+        <div class="row">
+          <div class="hero-text">
+            <nav class="navbar navbar-default"
+                 style="background-color:#B9FFFF">
+              <ul class="nav nav-tabs">
+                <li role="presentation"><a href="/">Home </a></li>
+                {{if not .user }}
+                <li role="presentation"><a href="/login">Login </a></li>
+                <li role="presentation"><a href="/registrar">Registrar</a></li>
+                {{else}}
+                <li role="presentation"><a href="/Posts/">Postar</a></li>
+                <li role="presentation"><a href="/logout/">LogOut</a></li>
+                {{end}}
+                <form class="navbar-form"
+                      action="/"
+                      method="GET"
+                      role="search">
+                  <input type="text"
+                         class="form-control"
+                         name="q"
+                         placeholder="Search"/>
+                  <button class="btn btn-info">
+                    buscar
+                  </button>
+                </form>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>

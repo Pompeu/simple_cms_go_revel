@@ -1,0 +1,22 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      {{template "flash.html" .}}
+      <form method="post" action="/Posts/" class="form-login">
+        <h2 class="form-signin-heading">Postar</h2>
+        <input type="text" name="title" class="input-block-level" placeholder="Name">
+        <label for="comment">Texto</label>
+        <textarea class="input-block-level" name="text" rows="10" cols="50">
+        </textarea>
+        <input type="text" name="tags" class="input-block-level" placeholder="tags">
+        <button class="btn btn-large btn-primary" type="submit">Postar</button>
+        <a href="/" class="btn btn-large" >Voltar</a>
+      </form>
+    </div>
+  </div>
+</div>
+{{template "footer.html" .}}

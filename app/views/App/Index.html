@@ -1,0 +1,33 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+<div class="container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="span6">
+        {{template "flash.html" .}}
+        {{$user := .user}}
+        {{range .posts}}
+        <div class="list-group">
+          <a href="/Posts/{{.Id.Hex}}"
+             class="list-group-item active">
+            <h4 class="list-group-item-heading">{{.Title}}</h4>
+          </a>
+
+          {{if $user }}
+          <a href="/post/editar/{{.Id.Hex}}">editar</a>
+          <a href="/post/remove/{{.Id.Hex}}">remover</a>
+          {{end}}
+          <p class="list-group-item-text">{{.Body}}</p>
+          <label> Tags : 
+            {{range .Tags}}
+            <a href="/tags/{{.}}">{{.}}</a>
+            {{end}}
+          </label>
+        </div>
+        {{end}}
+      </div>
+    </div>
+  </div>
+</div>
+
+{{template "footer.html" .}}

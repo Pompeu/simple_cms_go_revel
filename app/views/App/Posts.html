@@ -1,0 +1,12 @@
+{{set . "title"  "Home"}}
+{{template "header.html" .}}
+<div class ="container">
+  <div class ="container-fluid">
+    <div class = "well well-lg">
+      <h1>{{.post.Title}}</h1>
+      <p class="list-group-item-text">{{.post.Body}}</p>
+    </div>
+    <a href="/">back to Index </a>
+  </div>
+</div>
+{{template "footer.html". }}

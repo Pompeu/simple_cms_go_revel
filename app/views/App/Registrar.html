@@ -1,0 +1,20 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      {{template "flash.html" .}}
+      <form method="post" action="/registrar/" class="form-login">
+        <h2 class="form-signin-heading">Registrar</h2>
+        <input type="text" name="name" class="input-block-level" placeholder="Name">
+        <input type="email" name="email" class="input-block-level" placeholder="Email address">
+        <input type="password" name="password" class="input-block-level" placeholder="Password">
+        <button class="btn btn-large btn-primary" type="submit">Resgitrar</button>
+        <a href="/" class="btn btn-large" >Voltar</a>
+      </form>
+    </div>
+  </div>
+</div>
+{{template "footer.html" .}}
